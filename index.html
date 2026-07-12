@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>美容サロンLP風 JavaScript UIデモ</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-link">本文へスキップ</a>
+
+    <header class="header">
+      <a href="#main-content" class="site-logo">Luna Salon</a>
+
+      <button
+        id="menu-button"
+        class="menu-button"
+        type="button"
+        aria-controls="global-nav"
+        aria-expanded="false"
+        aria-label="メニューを開く"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="global-nav" class="nav" aria-label="メインメニュー">
+        <ul class="nav-list">
+          <li><a href="#main-content">ホーム</a></li>
+          <li><a href="#services-section">サービス</a></li>
+          <li><a href="#pricing-section">料金</a></li>
+          <li><a href="#faq-section">FAQ</a></li>
+          <li><a href="#contact-section">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content" class="app">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-text">
+          <h1 id="hero-title" class="hero-title">わたしらしく、輝く毎日へ。</h1>
+          <p class="hero-subtitle">
+            髪も心も整う、あなただけの時間。
+            <br />
+            Luna Salonが、理想のスタイルを叶えます。
+          </p>
+          <a href="#contact-section" class="button button-primary">ご予約はこちら</a>
+        </div>
+        <div class="hero-image" aria-hidden="true"></div>
+      </section>
+
+      <section class="services section" id="services-section" aria-labelledby="services-title">
+        <h2 id="services-title" class="section-title">Service</h2>
+        <p class="section-lead">ご希望に合わせて、メニュー内容を切り替えて確認できます。</p>
+
+        <div class="tab-buttons" role="tablist" aria-label="サービスメニュー">
+          <button
+            type="button"
+            class="tab-button is-active"
+            role="tab"
+            id="tab-hair"
+            aria-selected="true"
+            aria-controls="tab-panel-hair"
+          >
+            ヘア
+          </button>
+          <button
+            type="button"
+            class="tab-button"
+            role="tab"
+            id="tab-color"
+            aria-selected="false"
+            aria-controls="tab-panel-color"
+            tabindex="-1"
+          >
+            カラー
+          </button>
+          <button
+            type="button"
+            class="tab-button"
+            role="tab"
+            id="tab-treatment"
+            aria-selected="false"
+            aria-controls="tab-panel-treatment"
+            tabindex="-1"
+          >
+            トリートメント
+          </button>
+        </div>
+
+        <div id="tab-panel-hair" class="tab-panel is-show" role="tabpanel" aria-labelledby="tab-hair">
+          <div class="tab-panel-image" aria-hidden="true"></div>
+          <div>
+            <h3>ヘア</h3>
+            <p>骨格や髪質に合わせた似合わせカットで、毎日のスタイリングを扱いやすくします。</p>
+          </div>
+        </div>
+
+        <div id="tab-panel-color" class="tab-panel" role="tabpanel" aria-labelledby="tab-color" hidden>
+          <div class="tab-panel-image" aria-hidden="true"></div>
+          <div>
+            <h3>カラー</h3>
+            <p>肌なじみのよい色味を大切にしながら、自然で上品なカラーをご提案します。</p>
+          </div>
+        </div>
+
+        <div id="tab-panel-treatment" class="tab-panel" role="tabpanel" aria-labelledby="tab-treatment" hidden>
+          <div class="tab-panel-image" aria-hidden="true"></div>
+          <div>
+            <h3>トリートメント</h3>
+            <p>髪の状態に合わせて、うるおいとまとまりを整えるケアメニューをご用意しています。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="pricing section" id="pricing-section" aria-labelledby="pricing-title">
+        <h2 id="pricing-title" class="section-title">Price</h2>
+        <p class="section-lead">基本メニューの料金目安です。詳細はモーダルで確認できます。</p>
+
+        <dl class="pricing-table">
+          <div class="pricing-item">
+            <dt>カット</dt>
+            <dd>¥4,950〜</dd>
+          </div>
+          <div class="pricing-item">
+            <dt>カラー</dt>
+            <dd>¥6,600〜</dd>
+          </div>
+          <div class="pricing-item">
+            <dt>トリートメント</dt>
+            <dd>¥3,300〜</dd>
+          </div>
+        </dl>
+
+        <button id="pricing-modal-open" class="button button-primary" type="button" aria-haspopup="dialog">
+          料金詳細を見る
+        </button>
+
+        <dialog id="pricing-modal" class="modal" aria-labelledby="modal-title" aria-describedby="modal-description">
+          <button id="pricing-modal-close" class="modal-close" type="button" aria-label="料金詳細を閉じる">×</button>
+          <h2 id="modal-title">料金詳細</h2>
+          <p id="modal-description">表示価格は税込です。メニュー内容により料金が変わる場合があります。</p>
+
+          <div class="modal-price-list">
+            <section class="modal-price-category">
+              <h3>カット</h3>
+
+              <dl>
+                <div class="modal-price-item">
+                  <dt>似合わせカット</dt>
+                  <dd>¥4,950〜</dd>
+                </div>
+
+                <div class="modal-price-item">
+                  <dt>前髪カット</dt>
+                  <dd>¥1,100〜</dd>
+                </div>
+              </dl>
+            </section>
+
+            <section class="modal-price-category">
+              <h3>カラー</h3>
+
+              <dl>
+                <div class="modal-price-item">
+                  <dt>リタッチカラー</dt>
+                  <dd>¥6,600〜</dd>
+                </div>
+
+                <div class="modal-price-item">
+                  <dt>フルカラー</dt>
+                  <dd>¥7,700〜</dd>
+                </div>
+              </dl>
+            </section>
+
+            <section class="modal-price-category">
+              <h3>トリートメント</h3>
+
+              <dl>
+                <div class="modal-price-item">
+                  <dt>ベーシックケア</dt>
+                  <dd>¥3,300〜</dd>
+                </div>
+
+                <div class="modal-price-item">
+                  <dt>集中ケア</dt>
+                  <dd>¥5,500〜</dd>
+                </div>
+              </dl>
+            </section>
+          </div>
+        </dialog>
+      </section>
+
+      <section class="faq section" id="faq-section" aria-labelledby="faq-title">
+        <h2 id="faq-title" class="section-title">FAQ</h2>
+        <p class="section-lead">よくあるご質問をまとめました。</p>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Q. 予約はどのようにすればいいですか？</summary>
+            <div class="faq-answer">
+              <p>A. WEBまたはお電話にて受け付けております。WEB予約は24時間いつでも可能です。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Q. キャンセルや変更はいつまで可能ですか？</summary>
+            <div class="faq-answer">
+              <p>A. 予約日の24時間前までキャンセル・変更が可能です。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Q. 支払い方法は何がありますか？</summary>
+            <div class="faq-answer">
+              <p>A. 現金、クレジットカード、電子マネーがご利用いただけます。</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="contact section" id="contact-section" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="section-title">Contact</h2>
+        <p class="section-lead">ご予約やお問い合わせはこちらからお送りください。</p>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-field">
+            <label for="contact-name">お名前</label>
+            <input type="text" id="contact-name" name="name" maxlength="50" required aria-describedby="name-error" />
+            <p id="name-error" class="error-message" role="alert" hidden>お名前を入力してください。</p>
+          </div>
+
+          <div class="form-field">
+            <label for="contact-email">メールアドレス</label>
+            <input
+              type="email"
+              id="contact-email"
+              name="email"
+              maxlength="256"
+              required
+              autocomplete="email"
+              aria-describedby="email-error"
+            />
+            <p id="email-error" class="error-message" role="alert" hidden>有効なメールアドレスを入力してください。</p>
+          </div>
+
+          <div class="form-field">
+            <label for="contact-email-confirm">メールアドレス（確認用）</label>
+            <input
+              type="email"
+              id="contact-email-confirm"
+              name="emailConfirm"
+              maxlength="256"
+              required
+              autocomplete="off"
+              aria-describedby="email-confirm-error"
+            />
+            <p id="email-confirm-error" class="error-message" role="alert" hidden>メールアドレスが一致しません。</p>
+          </div>
+
+          <fieldset class="choice-field" aria-describedby="inquiry-type-error">
+            <legend>お問い合わせ種別</legend>
+
+            <label>
+              <input type="radio" name="inquiryType" value="ご予約" />
+              ご予約
+            </label>
+
+            <label>
+              <input type="radio" name="inquiryType" value="ご質問" />
+              ご質問
+            </label>
+
+            <label>
+              <input type="radio" name="inquiryType" value="その他" />
+              その他
+            </label>
+
+            <p id="inquiry-type-error" class="error-message" role="alert" hidden>
+              お問い合わせ種別を選択してください。
+            </p>
+          </fieldset>
+
+          <fieldset class="choice-field" aria-describedby="menu-error">
+            <legend>希望メニュー</legend>
+
+            <label>
+              <input type="checkbox" name="menus" value="カット" />
+              カット
+            </label>
+
+            <label>
+              <input type="checkbox" name="menus" value="カラー" />
+              カラー
+            </label>
+
+            <label>
+              <input type="checkbox" name="menus" value="トリートメント" />
+              トリートメント
+            </label>
+
+            <label>
+              <input type="checkbox" name="menus" value="相談して決めたい" />
+              相談して決めたい
+            </label>
+
+            <p id="menu-error" class="error-message" role="alert" hidden>希望メニューを1つ以上選択してください。</p>
+          </fieldset>
+
+          <div class="form-field">
+            <label for="contact-message">お問い合わせ内容</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              rows="4"
+              minlength="10"
+              maxlength="1000"
+              required
+              aria-describedby="message-error"
+            ></textarea>
+            <p id="message-error" class="error-message" role="alert" hidden>
+              お問い合わせ内容は10文字以上で入力してください。
+            </p>
+          </div>
+
+          <button id="contact-submit" class="button button-primary" type="submit">送信する</button>
+        </form>
+        <dialog
+          id="contact-complete-modal"
+          class="modal"
+          aria-labelledby="contact-complete-title"
+          aria-describedby="contact-complete-description"
+        >
+          <h2 id="contact-complete-title">送信デモが完了しました</h2>
+
+          <p id="contact-complete-description">以下の内容で受け付けた想定です。</p>
+
+          <dl class="complete-summary">
+            <div>
+              <dt>お名前</dt>
+              <dd id="complete-name"></dd>
+            </div>
+
+            <div>
+              <dt>メールアドレス</dt>
+              <dd id="complete-email"></dd>
+            </div>
+
+            <div>
+              <dt>お問い合わせ種別</dt>
+              <dd id="complete-inquiry-type"></dd>
+            </div>
+
+            <div>
+              <dt>希望メニュー</dt>
+              <dd id="complete-menus"></dd>
+            </div>
+          </dl>
+
+          <p class="modal-note">※このページはデモのため、実際の送信処理は行われません。</p>
+
+          <button id="contact-complete-close" class="button button-primary" type="button">閉じる</button>
+        </dialog>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="#main-content" class="footer-logo">Luna Salon</a>
+      <p>&copy; 2026 Luna Salon. All rights reserved.</p>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <ul class="footer-nav-list">
+          <li><a href="#main-content">ホーム</a></li>
+          <li><a href="#services-section">サービス</a></li>
+          <li><a href="#pricing-section">料金</a></li>
+          <li><a href="#faq-section">FAQ</a></li>
+          <li><a href="#contact-section">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </footer>
+    <button type="button" class="pagetop" aria-label="ページトップへ戻る">top</button>
+  </body>
+</html>
