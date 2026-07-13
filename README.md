@@ -211,7 +211,7 @@ CSSのメディアクエリを使用し、画面幅に応じてレイアウト�
 
 ## リポジトリ
 
-[GitHubリポジトリを見る]((https://github.com/kei-daido/javascript-ui-parts-demo))
+[GitHubリポジトリを見る](https://github.com/kei-daido/javascript-ui-parts-demo)
 
 ## 今後の改善予定
 
